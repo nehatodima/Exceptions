@@ -1,0 +1,14 @@
+package com.jalalkiswani.example;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import com.jk.exceptions.handler.JKExceptionHandlerFactory;
+import com.jk.exceptions.handler.JKExceptionUtil;
+public class ExceptionTest {
+    static {
+        JKExceptionHandlerFactory.getInstance().setHandler(FileNotFoundException.class, new FileNotFoundExceptionHandler());
+    }
+    public static void main(String[] args) {
+        ExampleFileReader reader = new ExampleFileReader();
+        reader.loadFile();
+    }
+}
